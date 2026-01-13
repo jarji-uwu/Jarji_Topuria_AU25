@@ -1,13 +1,13 @@
 from itertools import product
 from collections import defaultdict
 
+
 # Task 1
 def task_1(d1, d2):
     result = d1.copy()
     for k, v in d2.items():
         result[k] = result.get(k, 0) + v
     return result
-
 
 
 # Task 2
