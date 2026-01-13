@@ -1,5 +1,6 @@
-#session_1
+# session_1
 from typing import List
+
 
 def task_1(array: List[int], target: int) -> List[int]:
     seen = set()
@@ -10,11 +11,11 @@ def task_1(array: List[int], target: int) -> List[int]:
         seen.add(x)
     return []
 
+
 if __name__ == "__main__":
     sample = [3, 4, -1, 10, 12]
     target = 2
     print(task_1(sample, target))  # -> [3, -1]
-    pass
 
 
 def task_2(number: int) -> int:
@@ -25,32 +26,32 @@ def task_2(number: int) -> int:
         rev = rev * 10 + (n % 10)
         n //= 10
     return sign * rev
+
+
 if __name__ == "__main__":
     sample = 130
     print(task_2(sample))
-    pass
-
 
 
 def task_3(array: List[int]) -> int:
     for x in array:
-        val = abs(x)           
-        idx = val - 1  
+        val = abs(x)
+        idx = val - 1
         if array[idx] < 0:
             return val
         array[idx] = -array[idx]
     return -1
 
+
 if __name__ == "__main__":
-    sample = [2, 1, 3, 4,2]
-    print(task_3(sample)) 
-    pass
+    sample = [2, 1, 3, 4, 2]
+    print(task_3(sample))
 
 
 def task_4(roman: str) -> int:
     """
     Convert a Roman numeral string to an integer.
-    Assumes input contains only the characters I,V,X,L,C,D,M and is well-formed.
+    Assumes input contains only the characters I, V, X, L, C, D, M and is well-formed.
     """
     if not roman:
         return 0
@@ -76,10 +77,10 @@ def task_4(roman: str) -> int:
             total += v
     return total
 
+
 if __name__ == "__main__":
     sample = "XIX"
     print(task_4(sample))  # -> 19
-    pass
 
 
 def task_5(array: List[int]) -> int:
@@ -91,7 +92,7 @@ def task_5(array: List[int]) -> int:
             smallest = x
     return smallest
 
+
 if __name__ == "__main__":
     sample = [3, 4, -1, 10, 12]
     print(task_5(sample))
-    pass
