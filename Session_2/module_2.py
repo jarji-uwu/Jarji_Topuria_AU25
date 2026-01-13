@@ -9,6 +9,7 @@ def task_1(d1, d2):
     return result
 
 
+
 # Task 2
 def task_2():
     return {i: i * i for i in range(1, 16)}
