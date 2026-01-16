@@ -1,35 +1,66 @@
-# from collections import defaultdict as dd
-# from itertools import product
-from typing import Any, Dict, List, Tuple
+from itertools import product
+from collections import defaultdict
 
 
-def task_1(data_1: Dict[str, int], data_2: Dict[str, int]):
-    pass
+# Task 1
+def task_1(d1, d2):
+    result = d1.copy()
+    for k, v in d2.items():
+        result[k] = result.get(k, 0) + v
+    return result
 
 
+# Task 2
 def task_2():
-    pass
+    return {i: i * i for i in range(1, 16)}
 
 
-def task_3(data: Dict[Any, List[str]]):
-    pass
+# Task 3
+def task_3(d):
+    return [''.join(p) for p in product(*d.values())]
 
 
-def task_4(data: Dict[str, int]):
-    pass
+# Task 4
+def task_4(d):
+    if not d:
+        return []
+    return [k for k, _ in sorted(d.items(), key=lambda x: x[1], reverse=True)[:3]]
 
 
-def task_5(data: List[Tuple[Any, Any]]) -> Dict[str, List[int]]:
-    pass
+# Task 5
+def task_5(pairs):
+    result = defaultdict(list)
+    for k, v in pairs:
+        result[k].append(v)
+    return dict(result)
 
 
-def task_6(data: List[Any]):
-    pass
+# Task 6 (Optional)
+def task_6(lst):
+    seen = set()
+    result = []
+    for x in lst:
+        if x not in seen:
+            seen.add(x)
+            result.append(x)
+    return result
 
 
-def task_7(words: [List[str]]) -> str:
-    pass
+# Task 7
+def task_7(strs):
+    if not strs:
+        return ""
+    prefix = strs[0]
+    for s in strs[1:]:
+        while not s.startswith(prefix):
+            prefix = prefix[:-1]
+            if not prefix:
+                return ""
+    return prefix
 
 
-def task_8(haystack: str, needle: str) -> int:
-    pass
+# Task 8
+def task_8(haystack, needle):
+    if needle == "":
+        return 0
+    return haystack.find(needle)
