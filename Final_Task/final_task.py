@@ -1,6 +1,4 @@
-"""
-Module for preparing inverted indexes based on uploaded documents
-"""
+"""Module for preparing inverted indexes based on uploaded documents"""
 
 import sys
 import json
@@ -33,9 +31,7 @@ class EncodedFileType(FileType):
 
 
 class InvertedIndex:
-    """
-    This module is necessary to extract inverted indexes from documents.
-    """
+    """Module to extract inverted indexes from documents."""
 
     def __init__(self, words_ids: Dict[str, List[int]]):
         self.words_ids = words_ids
@@ -77,18 +73,14 @@ def build_inverted_index(documents: Dict[int, str]) -> InvertedIndex:
     return InvertedIndex(index)
 
 
-def callback_build(arguments) -> None:
-    return process_build(arguments.dataset, arguments.output)
-
-
 def process_build(dataset, output) -> None:
     documents = load_documents(dataset)
     inverted_index = build_inverted_index(documents)
     inverted_index.dump(output)
 
 
-def callback_query(arguments) -> None:
-    process_query(arguments.query, arguments.index)
+def callback_build(arguments) -> None:
+    return process_build(arguments.dataset, arguments.output)
 
 
 def process_query(queries, index) -> None:
@@ -100,30 +92,29 @@ def process_query(queries, index) -> None:
     for query in queries:
         if isinstance(query, str):
             query = query.strip().split()
-
         doc_indexes = ",".join(str(value) for value in inverted_index.query(query))
         print(doc_indexes)
+
+
+def callback_query(arguments) -> None:
+    process_query(arguments.query, arguments.index)
 
 
 def setup_subparsers(parser) -> None:
     subparser = parser.add_subparsers(dest="command")
 
+    # Build parser
     build_parser = subparser.add_parser("build")
     build_parser.add_argument("-d", "--dataset", required=True)
-    build_parser.add_argument(
-        "-o", "--output", default=DEFAULT_PATH_TO_STORE_INVERTED_INDEX
-    )
+    build_parser.add_argument("-o", "--output", default=DEFAULT_PATH_TO_STORE_INVERTED_INDEX)
     build_parser.set_defaults(callback=callback_build)
 
+    # Query parser
     query_parser = subparser.add_parser("query")
-    query_parser.add_argument(
-        "--index", default=DEFAULT_PATH_TO_STORE_INVERTED_INDEX
-    )
+    query_parser.add_argument("--index", default=DEFAULT_PATH_TO_STORE_INVERTED_INDEX)
 
     query_group = query_parser.add_mutually_exclusive_group(required=True)
-    query_group.add_argument(
-        "-q", "--query", dest="query", action="append", nargs="+"
-    )
+    query_group.add_argument("-q", "--query", dest="query", action="append", nargs="+")
     query_group.add_argument(
         "--query_from_file",
         dest="query",
@@ -135,7 +126,7 @@ def setup_subparsers(parser) -> None:
 
 def main():
     parser = ArgumentParser(
-        description="Inverted Index CLI is need to load, build, process query inverted index"
+        description="Inverted Index CLI to load, build, and process query inverted index"
     )
     setup_subparsers(parser)
     arguments = parser.parse_args()
