@@ -1,0 +1,7 @@
+﻿1	The Golden Gate Bridge is a famous landmark in San Francisco
+2	Hello is a common greeting around the world
+3	Obi-Wan Kenobi is a character from Star Wars
+4	The Golden Retriever is a popular dog breed
+5	Saying hello can make someone’s day better
+6	Star Wars features many characters, including Obi-Wan Kenobi
+
