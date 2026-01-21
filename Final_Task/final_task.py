@@ -31,7 +31,7 @@ class EncodedFileType(FileType):
 
 
 class InvertedIndex:
-    """Module to extract inverted indexes from documents."""
+    """Module to extract inverted indexes from documents...."""
 
     def __init__(self, words_ids: Dict[str, List[int]]):
         self.words_ids = words_ids
