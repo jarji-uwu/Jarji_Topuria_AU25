@@ -11,7 +11,7 @@ DEFAULT_PATH_TO_STORE_INVERTED_INDEX = "inverted.index"
 
 
 class EncodedFileType(FileType):
-    """File encoder"""
+    """File encoder:"""
 
     def __call__(self, string):
         if string == "-":
