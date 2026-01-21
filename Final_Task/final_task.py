@@ -1,4 +1,4 @@
-"""Module for preparing inverted indexes based on uploaded documents"""
+"""Module for preparing inverted indexes based on uploaded documents:"""
 
 import sys
 import json
