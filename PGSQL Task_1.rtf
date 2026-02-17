@@ -1,0 +1,80 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\csgray\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+2.1\
+CREATE DATABASE test_db;\
+\
+New database = folder created in base/ - overarching folder where Postgre stores database data. New database is assigned an object ID, just like any other object.\
+\
+\
+select d.oid, d.datname, d.datistemplate, d.datallowconn, t.spcname, pg_tablespace\
+from pg_database d\
+join pg_tablespace t on t.oid = d.dattablespace;\
+\
+pg_database contains all databases\
+Oid - object id, incrementally given to each new object\
+Datname - name of the object\
+Datistemplate- true if the db can be used as a template\
+Datallowconn - true, if can be connected by a user\
+\
+Tablespace is the physical storage location of the database, or other database objects.\
+t.spcname gives tablespace name, the default pg_default  and d.dattablespace or  t.oid both provide tablespace object id - yes, even tablespaces have oid.\
+\
+2.2\
+New tablespace created, thest_db physical location changed - moved to new tablespace.\
+\
+2.3\
+By narrowing down search path to labs prefix, we don\'92t need the schema prefix - by setting path to it the insertions happen inside the table in labs schema.\
+If path wasn\'92t narrowed down, query would attempt to populate table \'91person\'92 in public, user space, where there is no such table.\
+\
+\
+\
+3.1\
+xmin is an automatic postgre column tracking transaction id that created the row.\
+xmax is also an automatic column checking if the row is deleted or altered.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs19\fsmilli9960 \cf3 \kerning1\expnd0\expndtw0 INSERT INTO person VALUES(4, 'John');
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 3 rows have been inserted together - they share xmin, the 4th row inserted later has a different xmin.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs19\fsmilli9960 \cf3 \kerning1\expnd0\expndtw0 UPDATE person set name = 'Alex' where id = 2;\
+xmin stays the same for the updated row, xmax changes.\
+\
+DELETE FROM person WHERE id = 3;
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs19\fsmilli9960 \cf3 \kerning1\expnd0\expndtw0 xmin stays the same for the deleted row, xmax changes - same as update.\
+\
+INSERT INTO person VALUES(999, 'Test');\
+again, new value inserted with unique xmin. nothing in xmax, as the row has not been deleted or updated.\
+\
+DELETE FROM person WHERE id = 999;\
+again, xmin stays the same for the deleted row, xmax changes - same as update.\
+\
+3.2\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+vacuum labs.person;\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+Vacuuming removes records from automatic rows too - we get nulls in xmin, xmax, etc.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+INSERT INTO person VALUES(5, \'91Sarah\'92);\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+Inserting new value takes up space left over after vacuum.\
+\
+vacuum full labs.person;\
+unlike with vacuum, with full vacuum the dead tuples completely disappear. The next insertion will take their own space.}
