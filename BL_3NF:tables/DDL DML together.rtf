@@ -1,0 +1,3751 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Bold;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 Menlo-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red115\green158\blue202;\red204\green204\blue204;\red204\green155\blue117;
+\red183\green136\blue211;\red0\green184\blue184;\red193\green170\blue108;\red192\green192\blue192;\red158\green158\blue158;
+\red238\green204\blue100;\red202\green197\blue128;\red102\green151\blue104;}
+{\*\expandedcolortbl;;\csgenericrgb\c45098\c61961\c79216;\csgenericrgb\c80000\c80000\c80000;\csgenericrgb\c80000\c60784\c45882;
+\csgenericrgb\c71765\c53333\c82745;\csgenericrgb\c0\c72157\c72157;\csgenericrgb\c75686\c66667\c42353;\csgenericrgb\c75294\c75294\c75294;\csgenericrgb\c61961\c61961\c61961;
+\csgenericrgb\c93333\c80000\c39216;\csgenericrgb\c79216\c77255\c50196;\csgenericrgb\c40000\c59216\c40784;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs24 \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 TABLE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf4 bl_3nf\cf3 .\cf5 ce_landings\cf3 (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 	\cf6 LANDING_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3 	\cf6 LANDING_SRC_ID\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3 	\cf6 LANDING_NAME\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3 	\cf6 INSERT_DT\cf3      
+\f0\b \cf7 DATE
+\f1\b0 \cf3          
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 UPDATE_DT\cf3      
+\f0\b \cf7 DATE
+\f1\b0 \cf3          
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_SYSTEM\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_ENTITY\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_landings\cf3  
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf6 LANDING_ID\cf3 ),\cf0 \
+\cf3     \cf0 \
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_landings_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf6 LANDING_SRC_ID\cf3 , \cf6 SOURCE_SYSTEM\cf3 )\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\cf3 	\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_landings_id\cf10 ;\cf0 \
+\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 TABLE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf4 bl_3nf\cf3 .\cf5 ce_employees\cf3 (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 	\cf6 EMPLOYEE_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3 	\cf6 EMPLOYEE_SRC_ID\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3 	\cf6 EMPLOYEE_ROLE\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3 	\cf6 EMPLOYEE_YEARS\cf3  
+\f0\b \cf7 INT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3 	\cf6 INSERT_DT\cf3      
+\f0\b \cf7 DATE
+\f1\b0 \cf3          
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 UPDATE_DT\cf3      
+\f0\b \cf7 DATE
+\f1\b0 \cf3          
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_SYSTEM\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_ENTITY\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_employees\cf3  
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf6 EMPLOYEE_ID\cf3 ),\cf0 \
+\cf3     \cf0 \
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_employees_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf6 EMPLOYEE_SRC_ID\cf3 , \cf6 SOURCE_SYSTEM\cf3 )\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\cf3 	\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_employees_id\cf10 ;\cf0 \
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 TABLE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf4 bl_3nf\cf3 .\cf5 ce_products\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf6 PRODUCT_ID\cf3           
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3         
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 PRODUCT_SRC_ID\cf3       
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 PRODUCT_CATEGORY\cf3     
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 PRODUCT_SUBCATEGORY\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 PRODUCT_MATERIAL\cf3     
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf6 INSERT_DT\cf3            
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 UPDATE_DT\cf3            
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_SYSTEM\cf3        
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_ENTITY\cf3        
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_products\cf0 \
+\cf3         
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf6 PRODUCT_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_products_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf6 PRODUCT_SRC_ID\cf3 , \cf6 SOURCE_SYSTEM\cf3 )\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_products_id\cf10 ;\cf0 \
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 TABLE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf4 bl_3nf\cf3 .\cf5 ce_suppliers\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf6 SUPPLIER_ID\cf3         
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3         
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SUPPLIER_SRC_ID\cf3     
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SUPPLIER_COUNTRY\cf3    
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SUPPLIER_SIZE\cf3       
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf6 INSERT_DT\cf3           
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 UPDATE_DT\cf3           
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_SYSTEM\cf3       
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_ENTITY\cf3       
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_suppliers\cf0 \
+\cf3         
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf6 SUPPLIER_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_suppliers_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf6 SUPPLIER_SRC_ID\cf3 , \cf6 SOURCE_SYSTEM\cf3 )\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_suppliers_id\cf10 ;\cf0 \
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 TABLE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf4 bl_3nf\cf3 .\cf5 ce_payments\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf6 PAYMENT_ID\cf3         
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3         
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 PAYMENT_SRC_ID\cf3     
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 PAYMENT_METHOD\cf3     
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 PAYMENT_STATUS\cf3     
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 PAYMENT_PROVIDER\cf3   
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf6 INSERT_DT\cf3          
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 UPDATE_DT\cf3          
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_SYSTEM\cf3      
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_ENTITY\cf3      
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_payments\cf0 \
+\cf3         
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf6 PAYMENT_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_payments_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf6 PAYMENT_SRC_ID\cf3 , \cf6 SOURCE_SYSTEM\cf3 )\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_payments_id\cf10 ;\cf0 \
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 TABLE
+\f1\b0 \cf3  \cf9 IF\cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_deliveries\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 DELIVERY_ID\cf3          
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3         
+\f0\b \cf2 NOT
+\f1\b0 \cf3  \cf9 NULL\cf3 ,\cf0 \
+\cf3     \cf9 DELIVERY_SRC_ID\cf3      \cf9 VARCHAR\cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 DELIVERY_ADDRESS\cf3     
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  \cf9 NULL\cf3 ,\cf0 \
+\
+\cf3     \cf9 INSERT_DT\cf3            \cf9 DATE\cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3            \cf9 DATE\cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3        
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf3        \cf9 VARCHAR\cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_deliveries\cf0 \
+\cf3         
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 DELIVERY_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_deliveries_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf9 DELIVERY_SRC_ID\cf3 , \cf9 SOURCE_SYSTEM\cf3 )\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  \cf9 IF\cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  \cf9 EXISTS\cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_deliveries_id\cf10 ;\cf0 \
+\
+\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  \cf9 TABLE\cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_cities\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 CITY_ID\cf3          
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3         
+\f0\b \cf2 NOT
+\f1\b0 \cf3  \cf9 NULL\cf3 ,\cf0 \
+\cf3     \cf9 CITY_SRC_ID\cf3      
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  \cf9 NULL\cf3 ,\cf0 \
+\cf3     \cf9 CITY_NAME\cf3        \cf9 VARCHAR\cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 INSERT_DT\cf3        
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  \cf9 NULL\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3        
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3    \cf9 VARCHAR\cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf3    
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_cities\cf0 \
+\cf3         
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 CITY_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_cities_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf9 CITY_SRC_ID\cf3 , \cf9 SOURCE_SYSTEM\cf3 )\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_cities_id\cf10 ;\cf0 \
+\
+\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 TABLE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_districts\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 DISTRICT_ID\cf3        
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3         
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 DISTRICT_SRC_ID\cf3    
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 DISTRICT_NAME\cf3      \cf9 VARCHAR\cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 CITY_ID\cf3            
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3         
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 INSERT_DT\cf3          
+\f0\b \cf7 DATE
+\f1\b0 \cf3           \cf9 NOT\cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3          
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  \cf9 NULL\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3      
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf3      
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_districts\cf0 \
+\cf3         
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 DISTRICT_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_districts_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf9 DISTRICT_SRC_ID\cf3 , \cf9 SOURCE_SYSTEM\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 fk_ce_districts_city\cf0 \
+\cf3         
+\f0\b \cf2 FOREIGN
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 CITY_ID\cf3 )\cf0 \
+\cf3         
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_cities\cf3  (\cf9 CITY_ID\cf3 )\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_districts_id\cf10 ;\cf0 \
+\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 TABLE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_stores\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 STORE_ID\cf3          
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3         
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 STORE_SRC_ID\cf3      
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 STORE_BRAND\cf3       
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 DISTRICT_ID\cf3       
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3         
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 INSERT_DT\cf3         
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3         
+\f0\b \cf7 DATE
+\f1\b0 \cf3           
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3     
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf3     
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_stores\cf0 \
+\cf3         
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 STORE_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_stores_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf9 STORE_SRC_ID\cf3 , \cf9 SOURCE_SYSTEM\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 fk_ce_stores_district\cf0 \
+\cf3         
+\f0\b \cf2 FOREIGN
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 DISTRICT_ID\cf3 )\cf0 \
+\cf3         
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_districts\cf3  (\cf9 DISTRICT_ID\cf3 )\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  \cf9 NOT\cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_stores_id\cf10 ;\cf0 \
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 TABLE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_customers_scd\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 CUSTOMER_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_SRC_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 CUSTOMER_GENDER\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_AGE\cf3  
+\f0\b \cf7 INT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_SEGMENT\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 REGISTERED_CUSTOMER\cf3  
+\f0\b \cf7 BOOLEAN
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3  
+\f0\b \cf2 DEFAULT
+\f1\b0 \cf3  
+\f0\b \cf2 FALSE
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_REGISTRATION_DATE\cf3  
+\f0\b \cf7 DATE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 START_DT\cf3  
+\f0\b \cf7 DATE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3  
+\f0\b \cf2 DEFAULT
+\f1\b0 \cf3  
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '1990-01-01'\cf3 ,\cf0 \
+\cf3     \cf9 END_DT\cf3  
+\f0\b \cf7 DATE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3  \cf9 DEFAULT\cf3  
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '9999-12-31'\cf3 ,\cf0 \
+\cf3     \cf9 IS_ACTIVE\cf3  \cf9 VARCHAR\cf3 (\cf8 1\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3  \cf9 DEFAULT\cf3  \cf11 'Y'\cf3 ,\cf0 \
+\
+\cf3     \cf9 SOURCE_SYSTEM\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 INSERT_DT\cf3  
+\f0\b \cf7 TIMESTAMP
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3  
+\f0\b \cf7 TIMESTAMP
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_customers_scd\cf0 \
+\cf3         
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 CUSTOMER_ID\cf3 , \cf9 START_DT\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_customers_scd_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf9 CUSTOMER_SRC_ID\cf3 , \cf9 SOURCE_SYSTEM\cf3 , \cf9 START_DT\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 chk_ce_customers_scd_is_active\cf0 \
+\cf3         
+\f0\b \cf2 CHECK
+\f1\b0 \cf3  (\cf9 IS_ACTIVE\cf3  
+\f0\b \cf2 IN
+\f1\b0 \cf3  (\cf11 'Y'\cf3 ,\cf11 'N'\cf3 ))\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_customers_id\cf10 ;\cf0 \
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 TABLE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_sales\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 SALES_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 TRANSACTION_SRC_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 PRODUCT_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 STORE_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 EMPLOYEE_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 DELIVERY_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 LANDING_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 PAYMENT_ID\cf3  
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 SALE_DATE\cf3  
+\f0\b \cf7 DATE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 PRICE_RETAIL\cf3  
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 PRICE_DISCOUNT\cf3  
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 PRICE_SALE\cf3  
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_COST\cf3  
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 I_DELIVERED_IN\cf3  
+\f0\b \cf7 INT
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 SOURCE_SYSTEM\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf3  
+\f0\b \cf7 VARCHAR
+\f1\b0 \cf3 (\cf8 4000\cf3 ) 
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     \cf9 INSERT_DT\cf3  
+\f0\b \cf7 TIMESTAMP
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3  
+\f0\b \cf7 TIMESTAMP
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 NULL
+\f1\b0 \cf3 ,\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 pk_ce_sales\cf0 \
+\cf3         
+\f0\b \cf2 PRIMARY
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 SALES_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 uk_ce_sales_src\cf0 \
+\cf3         
+\f0\b \cf2 UNIQUE
+\f1\b0 \cf3  (\cf9 TRANSACTION_SRC_ID\cf3 , \cf9 SOURCE_SYSTEM\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 fk_ce_sales_product\cf0 \
+\cf3         
+\f0\b \cf2 FOREIGN
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 PRODUCT_ID\cf3 )\cf0 \
+\cf3         
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_products\cf3  (\cf9 PRODUCT_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 fk_ce_sales_supplier\cf0 \
+\cf3         
+\f0\b \cf2 FOREIGN
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 SUPPLIER_ID\cf3 )\cf0 \
+\cf3         
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_suppliers\cf3  (\cf9 SUPPLIER_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 fk_ce_sales_store\cf0 \
+\cf3         
+\f0\b \cf2 FOREIGN
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 STORE_ID\cf3 )\cf0 \
+\cf3         
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_stores\cf3  (\cf9 STORE_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 fk_ce_sales_employee\cf0 \
+\cf3         
+\f0\b \cf2 FOREIGN
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 EMPLOYEE_ID\cf3 )\cf0 \
+\cf3         
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_employees\cf3  (\cf9 EMPLOYEE_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 fk_ce_sales_delivery\cf0 \
+\cf3         
+\f0\b \cf2 FOREIGN
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 DELIVERY_ID\cf3 )\cf0 \
+\cf3         
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_deliveries\cf3  (\cf9 DELIVERY_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 fk_ce_sales_payment\cf0 \
+\cf3         
+\f0\b \cf2 FOREIGN
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 PAYMENT_ID\cf3 )\cf0 \
+\cf3         
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_payments\cf3  (\cf9 PAYMENT_ID\cf3 ),\cf0 \
+\
+\cf3     
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf3  \cf9 fk_ce_sales_landing\cf0 \
+\cf3         
+\f0\b \cf2 FOREIGN
+\f1\b0 \cf3  
+\f0\b \cf2 KEY
+\f1\b0 \cf3  (\cf9 LANDING_ID\cf3 )\cf0 \
+\cf3         
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_landings\cf3  (\cf9 LANDING_ID\cf3 )\cf0 \
+\
+\cf3     \cf12 -- NO FK to CE_CUSTOMERS_SCD (SCD2 rule)\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf3  
+\f0\b \cf2 SEQUENCE
+\f1\b0 \cf3  
+\f0\b \cf2 IF
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 seq_ce_sales_id\cf10 ;\cf0 \
+\
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_products\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 PRODUCT_ID\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_CATEGORY\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_SUBCATEGORY\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_MATERIAL\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_products\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 PRODUCT_ID\cf3  = -\cf8 1\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_products\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 PRODUCT_ID\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_CATEGORY\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_SUBCATEGORY\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_MATERIAL\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_products_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 product_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 product_category\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 product_subcategory\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 product_material\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf11 'RETAIL'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_RETAIL_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 product_id\cf3 , \cf11 'n.a.'\cf3 )         
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 product_category\cf3 , \cf11 'n.a.'\cf3 )   
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_category\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 product_subcategory\cf3 , \cf11 'n.a.'\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_subcategory\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 product_material\cf3 , \cf11 'n.a.'\cf3 )   
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_material\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_retail_sales\cf3 .\cf9 src_retail_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_products\cf3  \cf9 p\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 p\cf3 .\cf9 product_src_id\cf3  = \cf9 x\cf3 .\cf9 product_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 p\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_products\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 PRODUCT_ID\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_CATEGORY\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_SUBCATEGORY\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_MATERIAL\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_products_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 product_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 product_category\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 product_subcategory\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 product_material\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf11 'ONLINE'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_ONLINE_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 product_id\cf3 , \cf11 'n.a.'\cf3 )           
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 product_category\cf3 , \cf11 'n.a.'\cf3 )     
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_category\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 product_subcategory\cf3 , \cf11 'n.a.'\cf3 )  
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_subcategory\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 product_material\cf3 , \cf11 'n.a.'\cf3 )     
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_material\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_online_sales\cf3 .\cf9 src_online_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_products\cf3  \cf9 p\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 p\cf3 .\cf9 product_src_id\cf3  = \cf9 x\cf3 .\cf9 product_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 p\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_suppliers\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 SUPPLIER_ID\cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_COUNTRY\cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_SIZE\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_suppliers\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 SUPPLIER_ID\cf3  = -\cf8 1\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_suppliers\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 SUPPLIER_ID\cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_COUNTRY\cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_SIZE\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_suppliers_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 supplier_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 supplier_country\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 supplier_size\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf11 'RETAIL'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_RETAIL_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 supplier_id\cf3 , \cf11 'n.a.'\cf3 )       
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 supplier_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 supplier_country\cf3 , \cf11 'n.a.'\cf3 )  
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 supplier_country\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 supplier_size\cf3 , \cf11 'n.a.'\cf3 )     
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 supplier_size\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_retail_sales\cf3 .\cf9 src_retail_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_suppliers\cf3  \cf9 s\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 s\cf3 .\cf9 supplier_src_id\cf3  = \cf9 x\cf3 .\cf9 supplier_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 s\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_suppliers\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 SUPPLIER_ID\cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_COUNTRY\cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_SIZE\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_suppliers_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 supplier_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 supplier_country\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 supplier_size\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf11 'ONLINE'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_ONLINE_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 supplier_id\cf3 , \cf11 'n.a.'\cf3 )       
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 supplier_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 supplier_country\cf3 , \cf11 'n.a.'\cf3 )  
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 supplier_country\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 supplier_size\cf3 , \cf11 'n.a.'\cf3 )     
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 supplier_size\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_online_sales\cf3 .\cf9 src_online_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_suppliers\cf3  \cf9 s\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 s\cf3 .\cf9 supplier_src_id\cf3  = \cf9 x\cf3 .\cf9 supplier_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 s\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  * 
+\f0\b \cf2 FROM
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf9 bl_3nf\cf3 .\cf9 ce_suppliers\cf0 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_employees\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 EMPLOYEE_ID\cf3 ,\cf0 \
+\cf3     \cf9 EMPLOYEE_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 EMPLOYEE_ROLE\cf3 ,\cf0 \
+\cf3     \cf9 EMPLOYEE_YEARS\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf8 0\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_DATE\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_employees\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 EMPLOYEE_ID\cf3  = -\cf8 1\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_employees\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 EMPLOYEE_ID\cf3 ,\cf0 \
+\cf3     \cf9 EMPLOYEE_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 EMPLOYEE_ROLE\cf3 ,\cf0 \
+\cf3     \cf9 EMPLOYEE_YEARS\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_employees_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 employee_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 employee_role\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 employee_years\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'RETAIL'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_RETAIL_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 seller_employee_id\cf3 , \cf11 'n.a.'\cf3 )                
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 employee_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 seller_employee_role\cf3 , \cf11 'n.a.'\cf3 )              
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 employee_role\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 seller_employee_years\cf3 , \cf11 ''\cf3 )::
+\f0\b \cf7 INT
+\f1\b0 \cf3 , \cf8 0\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 employee_years\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_retail_sales\cf3 .\cf9 src_retail_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_employees\cf3  \cf9 e\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 e\cf3 .\cf9 employee_src_id\cf3  = \cf9 x\cf3 .\cf9 employee_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 e\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_cities\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 CITY_ID\cf3 ,\cf0 \
+\cf3     \cf9 CITY_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 CITY_NAME\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_cities\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 CITY_ID\cf3  = -\cf8 1\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_cities\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 CITY_ID\cf3 ,\cf0 \
+\cf3     \cf9 CITY_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 CITY_NAME\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_cities_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 city_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 city_name\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'RETAIL'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_RETAIL_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_city\cf3 , \cf11 'n.a.'\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 city_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_city\cf3 , \cf11 'n.a.'\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 city_name\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_retail_sales\cf3 .\cf9 src_retail_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_cities\cf3  \cf9 c\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 city_src_id\cf3  = \cf9 x\cf3 .\cf9 city_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_districts\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 DISTRICT_ID\cf3 ,\cf0 \
+\cf3     \cf9 DISTRICT_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 DISTRICT_NAME\cf3 ,\cf0 \
+\cf3     \cf9 CITY_ID\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_districts\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 DISTRICT_ID\cf3  = -\cf8 1\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_districts\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 DISTRICT_ID\cf3 ,\cf0 \
+\cf3     \cf9 DISTRICT_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 DISTRICT_NAME\cf3 ,\cf0 \
+\cf3     \cf9 CITY_ID\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_districts_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 district_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 district_name\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 c\cf3 .\cf9 city_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'RETAIL'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_RETAIL_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_city\cf3 , \cf11 'n.a.'\cf3 ) || \cf11 '_'\cf3  || \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_district\cf3 , \cf11 'n.a.'\cf3 )     
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 district_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_district\cf3 , \cf11 'n.a.'\cf3 )     
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 district_name\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_city\cf3 , \cf11 'n.a.'\cf3 )         
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 city_src_id\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_retail_sales\cf3 .\cf9 src_retail_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_cities\cf3  \cf9 c\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 city_src_id\cf3  = \cf9 x\cf3 .\cf9 city_src_id\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_districts\cf3  \cf9 d\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 d\cf3 .\cf9 district_src_id\cf3  = \cf9 x\cf3 .\cf9 district_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 d\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_stores\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 STORE_ID\cf3 ,\cf0 \
+\cf3     \cf9 STORE_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 STORE_BRAND\cf3 ,\cf0 \
+\cf3     \cf9 DISTRICT_ID\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_stores\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 STORE_ID\cf3  = -\cf8 1\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_stores\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 STORE_ID\cf3 ,\cf0 \
+\cf3     \cf9 STORE_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 STORE_BRAND\cf3 ,\cf0 \
+\cf3     \cf9 DISTRICT_ID\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_stores_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 store_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 store_brand\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 d\cf3 .\cf9 district_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'RETAIL'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_RETAIL_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_city\cf3 , \cf11 'n.a.'\cf3 ) || \cf11 '_'\cf3  ||\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_district\cf3 , \cf11 'n.a.'\cf3 ) || \cf11 '_'\cf3  ||\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_id\cf3 , \cf11 'n.a.'\cf3 )          
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 store_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_brand\cf3 , \cf11 'n.a.'\cf3 )       
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 store_brand\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_city\cf3 , \cf11 'n.a.'\cf3 ) || \cf11 '_'\cf3  ||\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 store_district\cf3 , \cf11 'n.a.'\cf3 )    
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 district_src_id\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_retail_sales\cf3 .\cf9 src_retail_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_districts\cf3  \cf9 d\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 d\cf3 .\cf9 district_src_id\cf3  = \cf9 x\cf3 .\cf9 district_src_id\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 d\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_stores\cf3  \cf9 s\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 s\cf3 .\cf9 store_src_id\cf3  = \cf9 x\cf3 .\cf9 store_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 s\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_landings\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 LANDING_ID\cf3 ,\cf0 \
+\cf3     \cf9 LANDING_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 LANDING_NAME\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_landings\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 LANDING_ID\cf3  = -\cf8 1\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_landings\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 LANDING_ID\cf3 ,\cf0 \
+\cf3     \cf9 LANDING_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 LANDING_NAME\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_landings_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 landing_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 landing_name\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'ONLINE'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_ONLINE_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 landing_page\cf3 , \cf11 'n.a.'\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 landing_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 landing_page\cf3 , \cf11 'n.a.'\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 landing_name\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_online_sales\cf3 .\cf9 src_online_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_landings\cf3  \cf9 l\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 l\cf3 .\cf9 landing_src_id\cf3  = \cf9 x\cf3 .\cf9 landing_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 l\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_deliveries\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 DELIVERY_ID\cf3 ,\cf0 \
+\cf3     \cf9 DELIVERY_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 DELIVERY_ADDRESS\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_deliveries\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 DELIVERY_ID\cf3  = -\cf8 1\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_deliveries\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 DELIVERY_ID\cf3 ,\cf0 \
+\cf3     \cf9 DELIVERY_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 DELIVERY_ADDRESS\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_deliveries_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 delivery_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 delivery_address\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'ONLINE'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_ONLINE_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 i_delivery_address\cf3 , \cf11 'n.a.'\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 delivery_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 i_delivery_address\cf3 , \cf11 'n.a.'\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 delivery_address\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_online_sales\cf3 .\cf9 src_online_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_deliveries\cf3  \cf9 d\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 d\cf3 .\cf9 delivery_src_id\cf3  = \cf9 x\cf3 .\cf9 delivery_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 d\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_payments\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 PAYMENT_ID\cf3 ,\cf0 \
+\cf3     \cf9 PAYMENT_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 PAYMENT_METHOD\cf3 ,\cf0 \
+\cf3     \cf9 PAYMENT_STATUS\cf3 ,\cf0 \
+\cf3     \cf9 PAYMENT_PROVIDER\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_payments\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 PAYMENT_ID\cf3  = -\cf8 1\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_payments\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 PAYMENT_ID\cf3 ,\cf0 \
+\cf3     \cf9 PAYMENT_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 PAYMENT_METHOD\cf3 ,\cf0 \
+\cf3     \cf9 PAYMENT_STATUS\cf3 ,\cf0 \
+\cf3     \cf9 PAYMENT_PROVIDER\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_payments_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 payment_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 payment_method\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 payment_status\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 payment_provider\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf11 'ONLINE'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_ONLINE_SALES'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 payment_method\cf3 , \cf11 'n.a.'\cf3 ) || \cf11 '_'\cf3  ||\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 payment_provider\cf3 , \cf11 'n.a.'\cf3 ) || \cf11 '_'\cf3  ||\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 payment_status\cf3 , \cf11 'n.a.'\cf3 )       
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 payment_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 payment_method\cf3 , \cf11 'n.a.'\cf3 )       
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 payment_method\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 payment_status\cf3 , \cf11 'n.a.'\cf3 )       
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 payment_status\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 payment_provider\cf3 , \cf11 'n.a.'\cf3 )     
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 payment_provider\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_online_sales\cf3 .\cf9 src_online_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_payments\cf3  \cf9 p\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 p\cf3 .\cf9 payment_src_id\cf3  = \cf9 x\cf3 .\cf9 payment_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 p\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_customers_scd\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 CUSTOMER_ID\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_GENDER\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_AGE\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_SEGMENT\cf3 ,\cf0 \
+\cf3     \cf9 REGISTERED_CUSTOMER\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_REGISTRATION_DATE\cf3 ,\cf0 \
+\cf3     \cf9 START_DT\cf3 ,\cf0 \
+\cf3     \cf9 END_DT\cf3 ,\cf0 \
+\cf3     \cf9 IS_ACTIVE\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     \cf8 0\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf2 FALSE
+\f1\b0 \cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '1900-01-01'\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '1990-01-01'\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '9999-12-31'\cf3 ,\cf0 \
+\cf3     \cf11 'Y'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf11 'MANUAL'\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_customers_scd\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 CUSTOMER_ID\cf3  = -\cf8 1\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_customers_scd\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 CUSTOMER_ID\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_GENDER\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_AGE\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_SEGMENT\cf3 ,\cf0 \
+\cf3     \cf9 REGISTERED_CUSTOMER\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_REGISTRATION_DATE\cf3 ,\cf0 \
+\cf3     \cf9 START_DT\cf3 ,\cf0 \
+\cf3     \cf9 END_DT\cf3 ,\cf0 \
+\cf3     \cf9 IS_ACTIVE\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_customers_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 customer_src_id\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 customer_gender\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 customer_age\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 customer_segment\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf2 FALSE
+\f1\b0 \cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '1900-01-01'\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '1990-01-01'\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '9999-12-31'\cf3 ,\cf0 \
+\cf3     \cf11 'Y'\cf3 ,\cf0 \
+\cf3     \cf11 'RETAIL'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_RETAIL_SALES'\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  
+\f0\b \cf2 DISTINCT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 customer_id\cf3 ::
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3 , -\cf8 1\cf3 )                 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 customer_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 customer_gender\cf3 , \cf11 'n.a.'\cf3 )                 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 customer_gender\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 customer_age\cf3 , \cf11 ''\cf3 )::
+\f0\b \cf7 INT
+\f1\b0 \cf3 , \cf8 0\cf3 )        
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 customer_age\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 customer_segment\cf3 , \cf11 'n.a.'\cf3 )                
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 customer_segment\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_retail_sales\cf3 .\cf9 src_retail_sales\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_customers_scd\cf3  \cf9 c\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 customer_src_id\cf3  = \cf9 x\cf3 .\cf9 customer_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_customers_scd\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 CUSTOMER_ID\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_GENDER\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_AGE\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_SEGMENT\cf3 ,\cf0 \
+\cf3     \cf9 REGISTERED_CUSTOMER\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_REGISTRATION_DATE\cf3 ,\cf0 \
+\cf3     \cf9 START_DT\cf3 ,\cf0 \
+\cf3     \cf9 END_DT\cf3 ,\cf0 \
+\cf3     \cf9 IS_ACTIVE\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_customers_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 customer_src_id\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3  
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 customer_gender\cf3 ,\cf0 \
+\cf3     \cf8 0\cf3       
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 customer_age\cf3 ,\cf0 \
+\cf3     \cf11 'n.a.'\cf3  
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 customer_segment\cf3 ,\cf0 \
+\cf3     (\cf9 x\cf3 .\cf9 registered_customer_int\cf3  = \cf8 1\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 registered_customer\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 registration_date\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '1990-01-01'\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '9999-12-31'\cf3 ,\cf0 \
+\cf3     \cf11 'Y'\cf3 ,\cf0 \
+\cf3     \cf11 'ONLINE'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_ONLINE_SALES'\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\cf3         
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 i_customer_id\cf3 ::
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3 , -\cf8 1\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 customer_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf0 \
+\cf3             
+\f0\b \cf2 CASE
+\f1\b0 \cf3  \cf0 \
+\cf3                 
+\f0\b \cf2 WHEN
+\f1\b0 \cf3  \cf9 i_registered_customer\cf3  = \cf11 'TRUE'\cf3  
+\f0\b \cf2 THEN
+\f1\b0 \cf3  \cf8 1\cf3  \cf0 \
+\cf3                 
+\f0\b \cf2 ELSE
+\f1\b0 \cf3  \cf8 0\cf3  \cf0 \
+\cf3             
+\f0\b \cf2 END
+\f1\b0 \cf0 \
+\cf3         ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 registered_customer_int\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf0 \
+\cf3             
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf0 \
+\cf3                 
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 i_customer_registration_date\cf3 , \cf11 ''\cf3 )::
+\f0\b \cf7 DATE
+\f1\b0 \cf3 ,\cf0 \
+\cf3                 
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '1900-01-01'\cf0 \
+\cf3             )\cf0 \
+\cf3         ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 registration_date\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_online_sales\cf3 .\cf9 src_online_sales\cf0 \
+\cf3     
+\f0\b \cf2 GROUP
+\f1\b0 \cf3  
+\f0\b \cf2 BY
+\f1\b0 \cf3  
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 i_customer_id\cf3 ::
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3 , -\cf8 1\cf3 )\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_customers_scd\cf3  \cf9 c\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 customer_src_id\cf3  = \cf9 x\cf3 .\cf9 customer_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 start_dt\cf3  = 
+\f0\b \cf7 DATE
+\f1\b0 \cf3  \cf11 '1990-01-01'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_sales\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf9 SALES_ID\cf3 ,\cf0 \
+\cf3     \cf9 TRANSACTION_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_ID\cf3 ,\cf0 \
+\cf3     \cf9 SUPPLIER_ID\cf3 ,\cf0 \
+\cf3     \cf9 CUSTOMER_ID\cf3 ,\cf0 \
+\cf3     \cf9 STORE_ID\cf3 ,\cf0 \
+\cf3     \cf9 EMPLOYEE_ID\cf3 ,\cf0 \
+\cf3     \cf9 DELIVERY_ID\cf3 ,\cf0 \
+\cf3     \cf9 LANDING_ID\cf3 ,\cf0 \
+\cf3     \cf9 PAYMENT_ID\cf3 ,\cf0 \
+\cf3     \cf9 SALE_DATE\cf3 ,\cf0 \
+\cf3     \cf9 PRICE_RETAIL\cf3 ,\cf0 \
+\cf3     \cf9 PRICE_DISCOUNT\cf3 ,\cf0 \
+\cf3     \cf9 PRICE_SALE\cf3 ,\cf0 \
+\cf3     \cf9 PRODUCT_COST\cf3 ,\cf0 \
+\cf3     \cf9 I_DELIVERED_IN\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf9 SOURCE_ENTITY\cf3 ,\cf0 \
+\cf3     \cf9 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf9 UPDATE_DT\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_sales_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 transaction_src_id\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 p\cf3 .\cf9 product_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 sup\cf3 .\cf9 supplier_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 c\cf3 .\cf9 customer_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 st\cf3 .\cf9 store_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 e\cf3 .\cf9 employee_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 sale_date\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 price_retail\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 price_discount\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 price_sale\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 product_cost\cf3 ,\cf0 \
+\cf3     \cf8 0\cf3 ,\cf0 \
+\cf3     \cf11 'RETAIL'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_RETAIL_SALES'\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf9 CURRENT_TIMESTAMP\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\cf3         \cf9 transaction_id\cf3 ::
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 transaction_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 TO_DATE
+\f1\b0 \cf3 (
+\f0\b \cf7 "date"
+\f1\b0 \cf3 , \cf11 'YYYY-MM-DD'\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 sale_date\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 product_id\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 supplier_id\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 supplier_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 customer_id\cf3 ::
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 customer_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 store_id\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 store_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 seller_employee_id\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 seller_employee_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 price_retail\cf3 ,\cf11 ''\cf3 )::
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3 ,\cf8 0\cf3 )) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 price_retail\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 price_discount\cf3 ,\cf11 ''\cf3 )::
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3 ,\cf8 0\cf3 )) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 price_discount\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 price_sale\cf3 ,\cf11 ''\cf3 )::
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3 ,\cf8 0\cf3 )) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 price_sale\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 product_cost\cf3 ,\cf11 ''\cf3 )::
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3 ,\cf8 0\cf3 )) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_cost\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_retail_sales\cf3 .\cf9 src_retail_sales\cf0 \
+\cf3     
+\f0\b \cf2 GROUP
+\f1\b0 \cf3  
+\f0\b \cf2 BY
+\f1\b0 \cf3  \cf9 transaction_id\cf3 ::
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3 , 
+\f0\b \cf7 TO_DATE
+\f1\b0 \cf3 (
+\f0\b \cf7 "date"
+\f1\b0 \cf3 , \cf11 'YYYY-MM-DD'\cf3 )\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_products\cf3  \cf9 p\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 p\cf3 .\cf9 product_src_id\cf3  = \cf9 x\cf3 .\cf9 product_id\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 p\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_suppliers\cf3  \cf9 sup\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 sup\cf3 .\cf9 supplier_src_id\cf3  = \cf9 x\cf3 .\cf9 supplier_id\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 sup\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_customers_scd\cf3  \cf9 c\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 customer_src_id\cf3  = \cf9 x\cf3 .\cf9 customer_id\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 is_active\cf3  = \cf11 'Y'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_employees\cf3  \cf9 e\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 e\cf3 .\cf9 employee_src_id\cf3  = \cf9 x\cf3 .\cf9 seller_employee_id\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 e\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_stores\cf3  \cf9 st\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 st\cf3 .\cf9 store_src_id\cf3  = \cf9 x\cf3 .\cf9 store_id\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 st\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_sales\cf3  \cf9 f\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 f\cf3 .\cf9 transaction_src_id\cf3  = \cf9 x\cf3 .\cf9 transaction_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 f\cf3 .\cf9 source_system\cf3  = \cf11 'RETAIL'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;\cf0 \
+\
+
+\f0\b \cf2 INSERT
+\f1\b0 \cf3  
+\f0\b \cf2 INTO
+\f1\b0 \cf3  \cf4 bl_3nf\cf3 .\cf5 ce_sales\cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     \cf6 SALES_ID\cf3 ,\cf0 \
+\cf3     \cf6 TRANSACTION_SRC_ID\cf3 ,\cf0 \
+\cf3     \cf6 PRODUCT_ID\cf3 ,\cf0 \
+\cf3     \cf6 SUPPLIER_ID\cf3 ,\cf0 \
+\cf3     \cf6 CUSTOMER_ID\cf3 ,\cf0 \
+\cf3     \cf6 STORE_ID\cf3 ,\cf0 \
+\cf3     \cf6 EMPLOYEE_ID\cf3 ,\cf0 \
+\cf3     \cf6 DELIVERY_ID\cf3 ,\cf0 \
+\cf3     \cf6 LANDING_ID\cf3 ,\cf0 \
+\cf3     \cf6 PAYMENT_ID\cf3 ,\cf0 \
+\cf3     \cf6 SALE_DATE\cf3 ,\cf0 \
+\cf3     \cf6 PRICE_RETAIL\cf3 ,\cf0 \
+\cf3     \cf6 PRICE_DISCOUNT\cf3 ,\cf0 \
+\cf3     \cf6 PRICE_SALE\cf3 ,\cf0 \
+\cf3     \cf6 PRODUCT_COST\cf3 ,\cf0 \
+\cf3     \cf6 I_DELIVERED_IN\cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_SYSTEM\cf3 ,\cf0 \
+\cf3     \cf6 SOURCE_ENTITY\cf3 ,\cf0 \
+\cf3     \cf6 INSERT_DT\cf3 ,\cf0 \
+\cf3     \cf6 UPDATE_DT\cf0 \
+\cf3 )\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf7 nextval
+\f1\b0 \cf3 (\cf11 'bl_3nf.seq_ce_sales_id'\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 transaction_src_id\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 p\cf3 .\cf9 product_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 sup\cf3 .\cf9 supplier_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 c\cf3 .\cf9 customer_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     -\cf8 1\cf3 ,\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 d\cf3 .\cf9 delivery_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 l\cf3 .\cf9 landing_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (\cf9 pay\cf3 .\cf9 payment_id\cf3 , -\cf8 1\cf3 ),\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 sale_date\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 price_retail\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 price_discount\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 price_sale\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 product_cost\cf3 ,\cf0 \
+\cf3     \cf9 x\cf3 .\cf9 i_delivered_in\cf3 ,\cf0 \
+\cf3     \cf11 'ONLINE'\cf3 ,\cf0 \
+\cf3     \cf11 'SRC_ONLINE_SALES'\cf3 ,\cf0 \
+\cf3     \cf6 CURRENT_TIMESTAMP\cf3 ,\cf0 \
+\cf3     \cf6 CURRENT_TIMESTAMP\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 FROM
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf0 \
+\cf3         \cf9 i_transaction_id\cf3 ::
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3  
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 transaction_src_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 TO_DATE
+\f1\b0 \cf3 (\cf9 i_date\cf3 , \cf11 'YYYY-MM-DD'\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  
+\f2\i \cf5 sale_date
+\f1\i0 \cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 product_id\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 product_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 supplier_id\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 supplier_id\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 i_customer_id\cf3 ::
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  
+\f2\i \cf5 customer_id
+\f1\i0 \cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 landing_page\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 landing_page\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 i_delivery_address\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 delivery_address\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 payment_method\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 payment_method\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 payment_status\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 payment_status\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (\cf9 payment_provider\cf3 ) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  \cf9 payment_provider\cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 price_retail\cf3 ,\cf11 ''\cf3 )::
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3 ,\cf8 0\cf3 )) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  
+\f2\i \cf5 price_retail
+\f1\i0 \cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 price_discount\cf3 ,\cf11 ''\cf3 )::
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3 ,\cf8 0\cf3 )) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  
+\f2\i \cf5 price_discount
+\f1\i0 \cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 price_sale\cf3 ,\cf11 ''\cf3 )::
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3 ,\cf8 0\cf3 )) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  
+\f2\i \cf5 price_sale
+\f1\i0 \cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 product_cost\cf3 ,\cf11 ''\cf3 )::
+\f0\b \cf7 NUMERIC
+\f1\b0 \cf3 ,\cf8 0\cf3 )) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  
+\f2\i \cf5 product_cost
+\f1\i0 \cf3 ,\cf0 \
+\cf3         
+\f0\b \cf7 MAX
+\f1\b0 \cf3 (
+\f0\b \cf7 COALESCE
+\f1\b0 \cf3 (
+\f0\b \cf7 NULLIF
+\f1\b0 \cf3 (\cf9 i_delivered_in\cf3 ,\cf11 ''\cf3 )::
+\f0\b \cf7 INT
+\f1\b0 \cf3 ,\cf8 0\cf3 )) 
+\f0\b \cf2 AS
+\f1\b0 \cf3  
+\f2\i \cf5 i_delivered_in
+\f1\i0 \cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 sa_online_sales\cf3 .\cf9 src_online_sales\cf0 \
+\cf3     
+\f0\b \cf2 GROUP
+\f1\b0 \cf3  
+\f0\b \cf2 BY
+\f1\b0 \cf3  \cf9 i_transaction_id\cf3 ::
+\f0\b \cf7 BIGINT
+\f1\b0 \cf3 , 
+\f0\b \cf7 TO_DATE
+\f1\b0 \cf3 (\cf9 i_date\cf3 , \cf11 'YYYY-MM-DD'\cf3 )\cf0 \
+\cf3 ) \cf9 x\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_products\cf3  \cf9 p\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 p\cf3 .\cf9 product_src_id\cf3  = \cf9 x\cf3 .\cf9 product_id\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 p\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_suppliers\cf3  \cf9 sup\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 sup\cf3 .\cf9 supplier_src_id\cf3  = \cf9 x\cf3 .\cf9 supplier_id\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 sup\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_customers_scd\cf3  \cf9 c\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 customer_src_id\cf3  = \cf9 x\cf3 .\cf9 customer_id\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 c\cf3 .\cf9 is_active\cf3  = \cf11 'Y'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_landings\cf3  \cf9 l\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 l\cf3 .\cf9 landing_src_id\cf3  = \cf9 x\cf3 .\cf9 landing_page\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 l\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_deliveries\cf3  \cf9 d\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 d\cf3 .\cf9 delivery_src_id\cf3  = \cf9 x\cf3 .\cf9 delivery_address\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 d\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 LEFT
+\f1\b0 \cf3  
+\f0\b \cf2 JOIN
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_payments\cf3  \cf9 pay\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 ON
+\f1\b0 \cf3  \cf9 pay\cf3 .\cf9 payment_src_id\cf3  = \cf9 x\cf3 .\cf9 payment_method\cf0 \
+\cf3    
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 pay\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  
+\f0\b \cf2 NOT
+\f1\b0 \cf3  
+\f0\b \cf2 EXISTS
+\f1\b0 \cf3  (\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3     
+\f0\b \cf2 SELECT
+\f1\b0 \cf3  \cf8 1\cf0 \
+\cf3     
+\f0\b \cf2 FROM
+\f1\b0 \cf3  \cf9 bl_3nf\cf3 .\cf9 ce_sales\cf3  \cf9 f\cf0 \
+\cf3     
+\f0\b \cf2 WHERE
+\f1\b0 \cf3  \cf9 f\cf3 .\cf9 transaction_src_id\cf3  = \cf9 x\cf3 .\cf9 transaction_src_id\cf0 \
+\cf3       
+\f0\b \cf2 AND
+\f1\b0 \cf3  \cf9 f\cf3 .\cf9 source_system\cf3  = \cf11 'ONLINE'\cf0 \
+\cf3 )\cf10 ;\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf2 COMMIT
+\f1\b0 \cf10 ;}
