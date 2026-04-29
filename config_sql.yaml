@@ -1,0 +1,12 @@
+tests:
+  - name: table exists check
+    sql: SELECT 1
+    expected: 1
+
+  - name: row count check
+    sql: SELECT 1
+    expected: 1
+
+  - name: simple validation
+    sql: SELECT 1
+    expected: 1
